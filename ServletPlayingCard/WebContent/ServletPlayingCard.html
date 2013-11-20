@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ServletPlayingCard</title>
+<link href="whatlovecando_css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var vcanvas, vimg02, vcon;
+var imgx = 0, imgy = 0;
+var counter=0; 
+var cx=10;
+var cy=20;
+function loadImage(){
+	vcanvas = document.getElementById("canvas1");
+	vcon = vcanvas.getContext("2d");
+	vimg02 = document.getElementById("img02");
+
+	vcon.drawImage(vimg02,0,0,112,148,0,0,112,148);//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+	
+}
+
+
+</script>
+</head>
+<body onload="loadImage()">
+
+<body>
+<canvas style="border-width: 10px;border-style: ridge;" id="canvas1" width = "112" height = "148">The browser does not support this canvas tag</canvas>
+<img id = "img02" alt="bg" src="image/card1.png" width="1024" height="1024" style="display: none;">
+</body>
+</html>

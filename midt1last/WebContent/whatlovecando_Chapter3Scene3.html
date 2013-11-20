@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>What Love Can Do</title>
+<link href="whatlovecando_css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var vcanvas, vimg01, vimg02, vimg03, vimg04, vcon;
+var imgx = 0, imgy = 0, stopanim;
+function loadImage(){
+	vcanvas = document.getElementById("canvas1");
+	vcon = vcanvas.getContext("2d");
+	vimg01 = document.getElementById("img01");
+	vimg02 = document.getElementById("img02");
+	vimg03 = document.getElementById("img03");
+	vimg04 = document.getElementById("img04");
+	vimg05 = document.getElementById("img05");
+	vimg06 = document.getElementById("img06");
+	vimg07 = document.getElementById("img07");
+	
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,0,0,200,200,20,200,200,200);//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+	vcon.drawImage(vimg03,0,0,200,200,250,700,200,200);
+	//vcon.drawImage(vimg04,0,0,300,300,-250,200,300,300);
+	vcon.drawImage(vimg05,0,0,200,200,370,200,200,200);
+	vcon.drawImage(vimg06,0,0,200,200,125,200,200,200);	
+//	vcon.drawImage(vimg07,0,0,200,200,170,250,200,200);	
+
+	startbutton();
+	
+}
+var counter=0; 
+var cx2=-200;//move to change position x on character in the canvas
+var cx1=700;//move to change position x on character in the canvas
+var cy=20;//move to change position y on character in the canvas
+
+function startbutton(){
+	if(stopanim !=null)clearInterval(stopanim);
+	stopanim = setInterval("animate()",100);//milisecond per frame
+}
+
+function stopbutton(){
+		if(stopanim !=null)clearInterval(stopanim);
+}
+
+function animate(){
+	counter++; 
+	cx1-=15;
+	cx2+=15;//move from left and right - and +
+	cy+=20;//move from up and down - and +
+	if (counter > 3) counter=0;
+	imgx = counter*200;
+	if (cx1 < -250) cx1=700;//if (variable > max value on x) variable=starting value on x
+	
+	if (cx2 > 600) cx2=-250;
+
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,0,0,200,200,20,200,200,200);;//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+
+//	vcon.drawImage(vimg04,imgx,imgy,300,300,cx2,200,300,300);
+	vcon.drawImage(vimg05,imgx,imgy,200,200,370,200,200,200);
+	vcon.drawImage(vimg06,imgx,imgy,200,200,125,200,200,200);	
+//	vcon.drawImage(vimg07,0,0,200,200,170,250,200,200);		
+	vcon.drawImage(vimg03,imgx,imgy,200,200,cx1,250,200,200);
+
+}
+</script>
+</head>
+<body onload="loadImage()">
+<h1>What Love Can Do</h1>
+<h2>Chapter 3: A friend or a foe...	</h2> 
+<h3>Scene 3: Cafeteria</h3>
+<canvas style="border-width: 10px;border-style: ridge;" id="canvas1" width = "640" height = "480">The browser does not support this canvas tag</canvas>
+<br>
+<textarea id=ta01 rows="4" cols="80" readonly="readonly">Then Martin, Vergil and Ramon spoke again about fellowship and about their Christ centered friendship. Arnold approached and joined them. Arnold asked, Hey Martin, do you have a crush here at school? Martin replied, Yeah, but I think it's impossible for us to have a more than friends relationship, it will remain as a crush for now. Arnold was surprised yet he was quiet. He thinks that he could make a move. </textarea> 
+<br>
+<img id = "img01" alt="bg" src="images/bg/bg_caf_2.png" width="640" height="480" style="display: none;">
+<img id = "img02" alt="arnold" src="images/characters/arnold/arnold_stand_front.png" style="display: none;">
+<img id = "img03" alt="fiona" src="images/characters/fiona/fiona_walk_left.png" style="display: none;">
+<img id = "img04" alt="martin" src="images/characters/martin/martin_walk_right.png" style="display: none;">
+<img id = "img05" alt="ramon" src="images/characters/ramon/ramon_talk_left.png" style="display: none;">
+<img id = "img06" alt="vergil" src="images/characters/vergil/vergil_talk_right.png" style="display: none;">
+<img id = "img07" alt="arnold_walk" src="images/characters/arnold/arnold_walk_right.png" style="display: none;">
+<br>
+<button id=but1 onclick="location.href='whatlovecando_Chapter3Scene2.html'">Go Back</button>
+<button id=but2 onclick="location.href='whatlovecando_Chapter3Scene4.html'">Goto Next Scene</button>
+<button id=but3 onclick="startbutton()">START ANIMATION</button>
+<button id=but4 onclick="stopbutton()">STOP ANIMATION</button>
+<button id=but5 onclick="location.href='whatlovecando_toc.html#one'">Table of Contents</button>
+<button id=but6 onclick="location.href='whatlovecando_main.html'">Home</button>
+</body>
+</html>

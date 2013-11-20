@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+body{ background-color: gray; text-align: center} 
+h1{color: white; font-family: sans-serif;}
+h2{color: white; font-family: sans-serif;}
+h3{color: white; font-family: sans-serif;}
+textarea{text-align: justify;}
+#td01{text-shadow:2px 2px 0px #FFFFFF; font-family: sans-serif;}
+#ta01{text-shadow:1px 1px 0px #FFFFFF;}
+
+.accordion h4 + div {
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: height 0.3s ease-in;
+        -moz-transition: height 0.3s ease-in;
+        -o-transition: height 0.3s ease-in;
+        -ms-transition: height 0.3s ease-in;
+        transition: height 0.3s ease-in;
+}
+
+.accordion :target h4 + div {
+        height: 750px;
+}
+
+.accordion .section.large:target h4 + div {
+        overflow: auto;
+}

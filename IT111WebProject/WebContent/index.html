@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>IT111 HOME PAGE</title>
+<style type="text/css"> <!-- Internal CSS --><!-- This is the color functions-->
+h2 {
+	font-style: italic; font-weight: bolder; font-family: Arial;
+}
+.second{
+	background-color: rgb(0,255,0); 
+}
+</style>
+<link href="style1.css" rel="stylesheet" type="text/css"> <!-- External CSS -->
+<script type="text/javascript"><!-- Java Script Internal-->
+var counter=0;
+	function clickme1() {
+		counter++
+		alert("You clicked me " + counter +" times...")
+	}
+</script>
+<script type="text/javascript" src="js1.js"></script><!-- Java Script External-->
+</head>
+<body onload="loadcanvas()"> <!-- Java Script Internal -->
+<marquee><h1 style="background-color: green;color: lime;">IT111 HOME PAGE</h1></marquee>
+<h2>This is the IT 111 Home Page</h2>
+<p>This is the first paragraph</p>
+<p class="second">This is the second paragraph</p>
+<div id="text1">This is the div area</div>
+<marquee><button id=but1 onclick="clickme1()">Click me!</button></marquee><!-- Button -->
+<button id=but2 onclick="clickme2()">Click me 2!</button>
+<img id = "desert" alt="This is the Antartic" src="images/Penguins.jpg" width=300 height=300>
+<canvas style="border-width: 5px;border-style: dashed;" id="story" width = "200" height = "200">The browser does not support this canvas tag</canvas><!-- HTML 5 Canvas -->
+
+</body>
+</html>

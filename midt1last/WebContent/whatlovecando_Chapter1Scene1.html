@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>What Love Can Do</title>
+<link href="whatlovecando_css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var vcanvas, vimg01, vimg02, vimg03, vimg04, vcon;
+var imgx = 0, imgy = 0;
+function loadImage(){
+	vcanvas = document.getElementById("canvas1");
+	vcon = vcanvas.getContext("2d");
+	vimg01 = document.getElementById("img01");
+	vimg02 = document.getElementById("img02");
+	vimg03 = document.getElementById("img03");
+	vimg04 = document.getElementById("img04");
+	
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,0,0,300,300,150,150,300,300);//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+	//vcon.drawImage(vimg03,imgx,imgy,100,100,10,100,100,100)
+	//vcon.drawImage(vimg04,imgx,imgy,100,100,10,100,100,100)
+	setInterval("animate()",150);//milisecond per frame
+}
+var counter=0; 
+var cx=10;
+var cy=20;
+function animate(){
+	counter++; 
+	cx+=10;//move from left and right - and +
+	cy+=20;//move from up and down - and +
+	if (counter >3) counter=0;
+	imgx = counter*300;
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,imgx,imgy,300,300,150,150,300,300); //(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+
+}
+</script>
+</head>
+<body onload="loadImage()">
+<h1>What Love Can Do</h1>
+<h2>Chapter 1: Last term, Last time...</h2> 
+<h3>Scene 1: The cafeteria</h3>
+<canvas style="border-width: 10px;border-style: ridge;" id="canvas1" width = "640" height = "480">The browser does not support this canvas tag</canvas>
+<br>
+<textarea id=ta01 rows="4" cols="80" readonly="readonly">A week after enrollment at school, First day, Arnold a graduating student, always enters the cafeteria, to look for friends, and to talk to someone. As he walks in the cafeteria, he saw his best friend Martin, Martin was talking to his two friends Ramon and Vergil.</textarea> 
+<br>
+<img id = "img01" alt="bg" src="images/bg/bg_caf_out.png" width="640" height="480" style="display: none;">
+<img id = "img02" alt="arnold" src="images/characters/arnold/arnold_nod_inplace.png" style="display: none;">
+<img id = "img03" alt="fiona" src="images/characters/fiona/fiona_walk_right.png" style="display: none;">
+<img id = "img04" alt="martin" src="images/characters/martin/martin_walk_right.png" style="display: none;">
+<br>
+<button id=but1 onclick="location.href='whatlovecando_introduction.html'">Go Back</button>
+<button id=but2 onclick="location.href='whatlovecando_Chapter1Scene2.html'">Goto Next Scene</button>
+<button id=but5 onclick="location.href='whatlovecando_toc.html#one'">Table of Contents</button>
+<button id=but6 onclick="location.href='whatlovecando_main.html'">Home</button>
+</body>
+</html>

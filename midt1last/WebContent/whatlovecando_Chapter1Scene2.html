@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>What Love Can Do</title>
+<link href="whatlovecando_css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var vcanvas, vimg01, vimg07, vimg08, vimg09, vimg10, vcon;
+var imgx = 0, imgy = 140, stopanim;
+var imgxd = 0, imgyd = 0;
+function loadImage(){
+	vcanvas = document.getElementById("canvas1");
+	vcon = vcanvas.getContext("2d");
+	vimg01 = document.getElementById("img01");
+	vimg07 = document.getElementById("img07");
+	vimg08 = document.getElementById("img08");
+	vimg09 = document.getElementById("img09");
+	vimg10 = document.getElementById("img10");
+
+	startbutton();
+	
+}
+var counter=0; 
+var cx3=-200;
+var cx2=600;//move to change position x on character in the canvas
+var cx1=-200;//move to change position x on character in the canvas
+
+var cy=20;//move to change position y on character in the canvas
+
+function startbutton(){
+	if(stopanim !=null)clearInterval(stopanim);
+	stopanim = setInterval("animate()",100);//milisecond per frame
+}
+
+function stopbutton(){
+		if(stopanim !=null)clearInterval(stopanim);
+}
+
+function animate(){
+	counter++; 
+	cx1+=10;
+	cx2+=15;//move from left and right - and +
+	cx3-=10;
+	cy+=20;//move from up and down - and +
+	if (counter > 2) counter=0;
+	imgx = counter*70;
+	if (cx1 > 600) cx1=-250;//if (variable > max value on x) variable=starting value on x
+	
+	if (cx2 < 600) cx2=250;
+	
+	if (cx3 < -250) cx2=800;
+
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg07,imgx,imgy,70,70,cx1,0,70,70);	
+	vcon.drawImage(vimg08,imgxd,imgyd,70,70,0,cy,70,70);
+	vcon.drawImage(vimg09,imgxl,imgyl,70,70,cx2,0,70,70);	
+	vcon.drawImage(vimg010,imgxd,imgyd,70,70,0,cy,70,70);	
+
+}
+</script>
+</head>
+<body onload="loadImage()">
+<h1></h1>
+<h2></h2> 
+<h3></h3>
+<canvas style="border-width: 10px;border-style: ridge;" id="canvas1" width = "640" height = "480">The browser does not support this canvas tag</canvas>
+<br>
+<textarea id=ta01 rows="4" cols="80" readonly="readonly"></textarea> 
+<br>
+<img id = "img01" alt="bg" src="images/bg/bg_caf_2.png" width="640" height="480" style="display: none;">
+
+<img id = "img07" alt="arnold_walk" src="images/midtermsprite2.png" style="display: none;">
+<img id = "img08" alt="arnold_walk" src="images/midtermsprite2.png" style="display: none;">
+<img id = "img09" alt="arnold_walk" src="images/midtermsprite2.png" style="display: none;">
+<img id = "img10" alt="arnold_walk" src="images/midtermsprite2.png" style="display: none;">
+<br>
+
+<button id=but3 onclick="startbutton()">START ANIMATION</button>
+<button id=but4 onclick="stopbutton()">STOP ANIMATION</button>
+
+</body>
+</html>

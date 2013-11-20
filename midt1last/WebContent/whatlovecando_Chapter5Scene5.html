@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>What Love Can Do</title>
+<link href="whatlovecando_css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var vcanvas, vimg01, vimg02, vimg03, vimg04, vcon;
+var imgx = 0, imgy = 0, stopanim;
+function loadImage(){
+	vcanvas = document.getElementById("canvas1");
+	vcon = vcanvas.getContext("2d");
+	vimg01 = document.getElementById("img01");
+	vimg02 = document.getElementById("img02");
+	vimg03 = document.getElementById("img03");
+	vimg04 = document.getElementById("img04");
+	
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,0,0,300,300,5,150,250,250);//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+	vcon.drawImage(vimg03,0,0,300,300,-250,200,300,300);
+	vcon.drawImage(vimg04,0,0,300,300,-250,200,300,300);
+
+	startbutton();
+	
+}
+var counter=0; 
+var cx2=-200;//move to change position x on character in the canvas
+var cx1=-200;//move to change position x on character in the canvas
+var cy=20;//move to change position y on character in the canvas
+
+function startbutton(){
+	if(stopanim !=null)clearInterval(stopanim);
+	stopanim = setInterval("animate()",100);//milisecond per frame
+}
+
+function stopbutton(){
+		if(stopanim !=null)clearInterval(stopanim);
+}
+
+function animate(){
+	counter++; 
+	cx1+=10;
+	cx2+=15;//move from left and right - and +
+	cy+=20;//move from up and down - and +
+	if (counter > 3) counter=0;
+	imgx = counter*300;
+	if (cx1 > 600) cx1=-250;//if (variable > max value on x) variable=starting value on x
+	if (cx2 > 600) cx2=-250;
+
+	vcon.drawImage(vimg01,0,0,640,480);//(srcimage,0,0,width,height)
+	vcon.drawImage(vimg02,0,0,300,300,5,150,250,250);//(srcimage,src x,src y,src width,src height,loc on canvas x ,loc on canvas y,new img width,new img height)
+//	vcon.drawImage(vimg03,imgx,imgy,300,300,cx1,200,300,300);
+//	vcon.drawImage(vimg04,imgx,imgy,300,300,cx2,200,300,300);
+}
+</script>
+</head>
+<body onload="loadImage()">
+<h1>What Love Can Do</h1>
+<h2>Chapter 5: Regrets are always in the end...</h2> 
+<h3>Scene 5: Lapu Lapu</h3>
+<canvas style="border-width: 10px;border-style: ridge;" id="canvas1" width = "640" height = "480">The browser does not support this canvas tag</canvas>
+<br>
+<textarea id=ta01 rows="4" cols="80" readonly="readonly">Arnold was very jealous. He walked home, He learned his lesson that, Love controlled his life, and made him blind. That before falling inlove again, He'll make sure that it's true love. </textarea> 
+<br>
+<img id = "img01" alt="bg" src="images/bg/bg_lapulapu.png" width="640" height="480" style="display: none;">
+<img id = "img02" alt="arnold" src="images/characters/arnold/arnold_nod_inplace.png" style="display: none;">
+<img id = "img03" alt="fiona" src="images/characters/fiona/fiona_walk_right.png" style="display: none;">
+<img id = "img04" alt="martin" src="images/characters/martin/martin_walk_right.png" style="display: none;">
+<br>
+<button id=but1 onclick="location.href='whatlovecando_Chapter5Scene4.html'">Go Back</button>
+<button id=but3 onclick="startbutton()">START ANIMATION</button>
+<button id=but4 onclick="stopbutton()">STOP ANIMATION</button>
+<button id=but5 onclick="location.href='whatlovecando_toc.html#one'">Table of Contents</button>
+<button id=but6 onclick="location.href='whatlovecando_main.html'">Home</button>
+</body>
+</html>
